@@ -1,10 +1,8 @@
 from publication import Publication
 
-
 class Book(Publication):
-    def __init__(self, v_title: str, v_price: float, v_page_cout: int) -> None:
-        super().putdata(v_title, v_price)
-        self._page_count = v_page_cout
+    def __init__(self) -> None:
+        self.putdata()
 
     def getdata(self) -> dict:
         result_dict = {
@@ -13,6 +11,19 @@ class Book(Publication):
         result_dict = { **result_dict, **super().getdata() }
         return result_dict
 
-    def putdata(self, v_title: str, v_price: float, v_page_cout: int) -> None:
-        super().putdata(v_title, v_price)
+    def putdata(self) -> None:
+        super().putdata()
+        while True:
+            try:
+                v_page_cout = input("input page count: ")
+                v_page_cout = int(v_page_cout)
+                break
+            except ValueError as err:
+                print(err)
         self._page_count = v_page_cout
+
+def main() -> None:
+    print("!Book!")
+    b = Book()
+if __name__ == "__main__":
+    main()

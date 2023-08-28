@@ -1,9 +1,8 @@
 from publication import Publication
 
 class Tape(Publication):
-    def __init__(self, v_title: str, v_price: float, v_playing_time: float) -> None:
-        super().putdata(v_title, v_price)
-        self._playing_time = v_playing_time
+    def __init__(self) -> None:
+        self.putdata()
 
     def getdata(self) -> dict:
         result_dict = {
@@ -12,6 +11,13 @@ class Tape(Publication):
         result_dict = { **result_dict, **super().getdata() }
         return result_dict
 
-    def putdata(self, v_title: str, v_price: float, v_playing_time: float) -> None:
-        super().putdata(v_title, v_price)
+    def putdata(self) -> None:
+        super().putdata()
+        while True:
+            try:
+                v_playing_time = input("input playing time: ")
+                v_playing_time = float(v_playing_time)
+                break
+            except ValueError as err:
+                print(err)
         self._playing_time = v_playing_time

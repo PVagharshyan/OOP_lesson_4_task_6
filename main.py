@@ -4,8 +4,8 @@ from publication import Publication
 
 def main() -> None:
     print("!main!")
-    book = Book("title", 10.2, 154)
-    tape = Tape("title", 10.2, 10.5)
+    book = Book()
+    tape = Tape()
 
     print("get book data: ")
     print(book.getdata())
@@ -13,9 +13,9 @@ def main() -> None:
     print(tape.getdata())
 
     print("put book data: ")
-    book.putdata("title", 10.2, 154)
+    book.putdata()
     print("put tape data: ")
-    tape.putdata("title", 10.2, 154)
+    tape.putdata()
 
 if __name__ == "__main__":
     main()
